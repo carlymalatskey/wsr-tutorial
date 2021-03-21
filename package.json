@@ -1,0 +1,88 @@
+{
+  "name": "@wix/wsr-tutorial",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "carlymalatskey",
+    "email": "carlym@wix.com"
+  },
+  "scripts": {
+    "start": "yoshi start",
+    "build": "yoshi build",
+    "test": "yoshi test",
+    "lint": "yoshi lint",
+    "posttest": "npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": "yoshi lint"
+  },
+  "dependencies": {
+    "@wix/bootstrap-hot-loader": "^5.0.0",
+    "@wix/wix-axios-config": "latest",
+    "@wix/wix-bootstrap-greyhound": "latest",
+    "@wix/wix-bootstrap-hadron": "latest",
+    "@wix/wix-bootstrap-ng": "latest",
+    "@wix/wix-bootstrap-renderer": "latest",
+    "@wix/wix-express-csrf": "latest",
+    "@wix/wix-express-require-https": "latest",
+    "@wix/wix-i18n-config": "^5.0.6",
+    "@wix/wix-node-i18n-cache": "0.0.52",
+    "axios": "^0.19.0",
+    "babel-runtime": "^6.26.0",
+    "express": "^4.17.1",
+    "prop-types": "~15.6.0",
+    "react": "^16.14.0",
+    "react-dom": "16.12.0",
+    "source-map-support": "^0.5.11",
+    "wix-style-react": "^8.42.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.5",
+    "@wix/fedops-logger": "^5.0.0",
+    "@wix/jest-yoshi-preset": "^5.0.0",
+    "@wix/wix-bootstrap-testkit": "latest",
+    "@wix/wix-config-emitter": "latest",
+    "@wix/yoshi": "^5.0.0",
+    "@wix/yoshi-style-dependencies": "^5.0.0",
+    "husky": "~4.2.1",
+    "lint-staged": "^10.0.7",
+    "puppeteer": "^5.5.0"
+  },
+  "jest": {
+    "preset": "@wix/jest-yoshi-preset"
+  },
+  "yoshi": {
+    "projectType": "app",
+    "externals": {
+      "react": "React",
+      "react-dom": "ReactDOM",
+      "@wix/fedops-logger": "fedopsLogger"
+    },
+    "hmr": "auto"
+  },
+  "eslintConfig": {
+    "extends": "@wix/eslint-config-yoshi",
+    "globals": {
+      "app": false
+    }
+  },
+  "wix": {
+    "artifact": {
+      "groupId": "com.wixpress",
+      "artifactId": "wsr-tutorial",
+      "targets": {
+        "static": true,
+        "docker": true
+      }
+    }
+  },
+  "wallaby": {
+    "autoDetect": true
+  }
+}
